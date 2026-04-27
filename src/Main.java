@@ -1,3 +1,12 @@
+/**
+ * File: Main.java
+ * Course: CSCI 1301 Programming Principles I
+ * Author: Jayson Williams
+ * Created on: 04/27/2026
+ * Description: Runs the Task Management System program by displaying the menu,
+ * collecting user input, and calling TaskManager methods.
+ */
+
 import java.util.Scanner;
 
 public class Main {

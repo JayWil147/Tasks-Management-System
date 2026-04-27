@@ -1,3 +1,12 @@
+/**
+ * File: Task.java
+ * Course: CSCI 1301 Programming Principles I
+ * Author: Jayson Williams
+ * Created on: 04/27/2026
+ * Description: Represents a single task with a title, description, category,
+ * priority, due date, and completion status.
+ */
+
 public class Task {
     private String title;
     private String description;

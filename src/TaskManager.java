@@ -1,3 +1,12 @@
+/**
+ * File: TaskManager.java
+ * Course: CSCI 1301 Programming Principles I
+ * Author: Jayson Williams
+ * Created on: 04/27/2026
+ * Description: Manages a list of Task objects and provides methods to add,
+ * view, search, remove, save, and load tasks.
+ */
+
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
