@@ -1,4 +1,7 @@
+import java.io.File;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class TaskManager {
     private ArrayList<Task> tasks;
@@ -73,6 +76,56 @@ public class TaskManager {
         }
         else {
             System.out.println("Invalid task number.");
+        }
+    }
+
+    public void saveTasksToFile(String fileName) {
+        try {
+            PrintWriter output = new PrintWriter(fileName);
+
+            for (int i = 0; i < tasks.size(); i++) {
+                output.println(tasks.get(i).toFileString());
+            }
+
+            output.close();
+            System.out.println("Tasks saved successfully.");
+        }
+        catch (Exception e) {
+            System.out.println("Error saving tasks to file.");
+        }
+    }
+
+    public void loadTasksFromFile(String fileName) {
+        try {
+            File file = new File(fileName);
+            Scanner fileInput = new Scanner(file);
+
+            tasks.clear();
+
+            while (fileInput.hasNextLine()) {
+                String line = fileInput.nextLine();
+                String[] parts = line.split("\\|");
+
+                if (parts.length == 6) {
+                    String title = parts[0];
+                    String description = parts[1];
+                    String category = parts[2];
+                    String priority = parts[3];
+                    String dueDate = parts[4];
+                    boolean completed = Boolean.parseBoolean(parts[5]);
+
+                    Task loadedTask = new Task(title, description, category,
+                            priority, dueDate, completed);
+
+                    tasks.add(loadedTask);
+                }
+            }
+
+            fileInput.close();
+            System.out.println("Tasks loaded successfully.");
+        }
+        catch (Exception e) {
+            System.out.println("Error loading tasks from file.");
         }
     }
 }

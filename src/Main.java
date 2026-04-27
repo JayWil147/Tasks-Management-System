@@ -5,6 +5,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         TaskManager manager = new TaskManager();
         int choice = 0;
+        String fileName = "tasks.txt";
 
         while (choice != 8) {
             displayMenu();
@@ -27,10 +28,10 @@ public class Main {
                     removeTaskMenu(manager, input);
                     break;
                 case 6:
-                    System.out.println("Save feature will be added next.");
+                    manager.saveTasksToFile(fileName);
                     break;
                 case 7:
-                    System.out.println("Load feature will be added next.");
+                    manager.loadTasksFromFile(fileName);
                     break;
                 case 8:
                     System.out.println("Exiting Task Management System. Goodbye!");
